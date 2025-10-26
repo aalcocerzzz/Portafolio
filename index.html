@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="es" style="scroll-behavior: smooth;">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portafolio profesional de Alexander Sebastian Alcocer Flores - Ingeniería de Sistemas, Full Stack, IA, Automatización." />
+  <title>Alexander Sebastian Alcocer Flores | Portafolio</title>
+
+  <!-- Fuente moderna -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg-dark: #0a0a0a;
+      --card-dark: #141414;
+      --border-dark: #2a2a2a;
+      --text-main: #ffffff;
+      --text-dim: #9ca3af;
+      --accent: #38bdf8; /* celeste tipo dev */
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      margin: 0;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      line-height: 1.5;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(8px);
+      background-color: rgba(10, 10, 10, 0.7);
+      border-bottom: 1px solid var(--border-dark);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem;
+      width: 100%;
+    }
+
+    .top-row {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    @media (min-width: 640px) {
+      .top-row {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .id-block h1 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin: 0 0 0.25rem 0;
+      line-height: 1.3;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      line-height: 1.4;
+      font-weight: 400;
+    }
+
+    .links-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1rem;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+    }
+
+    .links-row a {
+      text-decoration: none;
+      color: var(--text-dim);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      border: 1px solid var(--border-dark);
+      border-radius: 999px;
+      padding: 0.4rem 0.8rem;
+      line-height: 1.2;
+      transition: 0.15s;
+    }
+
+    .links-row a:hover {
+      color: var(--text-main);
+      border-color: var(--text-main);
+    }
+
+    nav.nav-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    nav.nav-tabs a {
+      text-decoration: none;
+      font-size: 0.75rem;
+      line-height: 1.2rem;
+      padding: 0.5rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-dark);
+      color: var(--text-dim);
+      transition: 0.15s;
+    }
+
+    nav.nav-tabs a:hover {
+      color: var(--text-main);
+      border-color: var(--text-main);
+    }
+
+    /* contenido principal */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    @media (min-width: 1024px) {
+      main {
+        grid-template-columns: 2fr 1fr;
+      }
+    }
+
+    .card {
+      background-color: var(--card-dark);
+      border: 1px solid var(--border-dark);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-main);
+      line-height: 1.2;
+      margin: 0 0 0.25rem 0;
+    }
+
+    .section-sub {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      margin: 0 0 1rem 0;
+      line-height: 1.4;
+    }
+
+    .text-body {
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin: 0.5rem 0 0 0;
+    }
+
+    /* listas de proyectos / experiencia */
+    ul.clean-list {
+      list-style: none;
+      margin: 1rem 0 0 0;
+      padding: 0;
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    ul.clean-list li + li {
+      margin-top: 1rem;
+    }
+
+    ul.clean-list strong {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.75rem;
+    }
+
+    .tag {
+      font-size: 0.7rem;
+      background-color: #1f2937;
+      border: 1px solid var(--border-dark);
+      border-radius: 0.5rem;
+      padding: 0.35rem 0.5rem;
+      color: var(--text-main);
+      line-height: 1.2;
+    }
+
+    /* educación y skills */
+    .edu-list,
+    .skills-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0 0;
+      color: var(--text-dim);
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    .edu-list li + li,
+    .skills-list li + li {
+      margin-top: 1rem;
+    }
+
+    .edu-list strong,
+    .skills-list strong {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    footer {
+      border-top: 1px solid var(--border-dark);
+      font-size: 0.7rem;
+      color: #6b7280;
+      text-align: center;
+      padding: 2rem 1rem 3rem;
+    }
+
+    .accent {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .location-line {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      margin-top: 0.25rem;
+    }
+
+    .small-label {
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      font-weight: 400;
+    }
+
+    .available-pill {
+      background-color: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      padding: 0.4rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--accent);
+      line-height: 1.2;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <div class="top-row">
+        <div class="id-block">
+          <h1>Alexander Sebastian Alcocer Flores</h1>
+          <p class="subtitle">
+            Ingeniería de Sistemas · Full Stack Developer · IA &amp; Automatización
+          </p>
+          <p class="location-line">Lima, Perú · Disponible para prácticas / proyectos freelance</p>
+        </div>
+
+        <div class="links-row">
+          <a href="mailto:alexanderalcocer21092728@gmail.com" target="_blank" rel="noopener noreferrer">
+            <span>📧</span>
+            <span>Email</span>
+          </a>
+          <a href="https://www.linkedin.com/in/alexander-sebastian-alcocer-flores-0aa703390/" target="_blank" rel="noopener noreferrer">
+            <span>💼</span>
+            <span>LinkedIn</span>
+          </a>
+          <a href="https://github.com/Alex2r3" target="_blank" rel="noopener noreferrer">
+            <span>💻</span>
+            <span>GitHub</span>
+          </a>
+        </div>
+      </div>
+
+      <nav class="nav-tabs">
+        <a href="#about">Sobre mí</a>
+        <a href="#projects">Proyectos</a>
+        <a href="#experience">Experiencia</a>
+        <a href="#skills">Habilidades</a>
+        <a href="#education">Educación</a>
+        <a href="#contact">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <!-- LEFT COLUMN -->
+    <section class="left-col">
+
+      <!-- SOBRE MI -->
+      <section class="card" id="about">
+        <h2 class="section-title">👨‍💻 Sobre mí</h2>
+        <p class="section-sub">UTEC · Ingeniería de Sistemas (décimo ciclo)</p>
+        <p class="text-body">
+          Soy un desarrollador con enfoque en
+          <span class="accent">software escalable, inteligencia artificial e integración hardware–software</span>.
+          Trabajo en soluciones reales que combinan backend, apps móviles, visión computacional y cloud.
+        </p>
+        <p class="text-body">
+          Me interesa construir productos funcionales que tengan impacto directo: educación con IA,
+          industria más eficiente, y seguridad tecnológica.
+        </p>
+      </section>
+
+      <!-- PROYECTOS DESTACADOS -->
+      <section class="card" id="projects">
+        <h2 class="section-title">🚀 Proyectos Destacados</h2>
+        <p class="section-sub">Algunos trabajos técnicos recientes</p>
+
+        <ul class="clean-list">
+          <li>
+            <strong>Warmi Go (JA Perú, 2023):</strong>
+            Plataforma digital ganadora nacional enfocada en bienestar femenino.
+            Rol: líder técnico y backend.
+            Diseño de arquitectura con Laravel + MySQL,
+            prototipado en Figma y despliegue ágil.
+            <div class="tag-row">
+              <span class="tag">Laravel</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">Figma</span>
+              <span class="tag">Scrum</span>
+            </div>
+          </li>
+
+          <li>
+            <strong>TecnoGuÍA (UTEC Innovation 2025):</strong>
+            Asistente virtual educativo con IA generativa para guiar a estudiantes en entornos industriales.
+            Integración de Gemini API, Python/Flask y motor conversacional con memoria contextual.
+            <div class="tag-row">
+              <span class="tag">Python</span>
+              <span class="tag">Flask</span>
+              <span class="tag">Gemini API</span>
+              <span class="tag">n8n</span>
+            </div>
+          </li>
+
+          <li>
+            <strong>Mecatrack (IoT, 2024 – Actualidad):</strong>
+            Sistema de monitoreo vehicular que analiza vibraciones del motor para detectar fallas tempranas.
+            App Android en Kotlin con Jetpack Compose y comunicación Bluetooth con módulo Arduino.
+            <div class="tag-row">
+              <span class="tag">Kotlin</span>
+              <span class="tag">Jetpack Compose</span>
+              <span class="tag">Bluetooth</span>
+              <span class="tag">Arduino</span>
+            </div>
+          </li>
+
+          <li>
+            <strong>VisionAI (2024):</strong>
+            Detección y clasificación visual para control de calidad industrial.
+            Entrenamiento de modelos con TensorFlow/OpenCV y despliegue en hardware embebido.
+            <div class="tag-row">
+              <span class="tag">TensorFlow</span>
+              <span class="tag">OpenCV</span>
+              <span class="tag">Python</span>
+              <span class="tag">Raspberry Pi</span>
+            </div>
+          </li>
+
+          <li>
+            <strong>EduLink (2024):</strong>
+            Plataforma académica con dashboards en tiempo real.
+            APIs REST en Node.js y panel docente en React.
+            <div class="tag-row">
+              <span class="tag">React</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">Docker</span>
+              <span class="tag">JWT Auth</span>
+            </div>
+          </li>
+
+          <li>
+            <strong>DataFlow (2025):</strong>
+            Automatización de procesos internos con FastAPI, Docker y pipelines ligeros.
+            <div class="tag-row">
+              <span class="tag">FastAPI</span>
+              <span class="tag">CI/CD</span>
+              <span class="tag">DevOps</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- EXPERIENCIA -->
+      <section class="card" id="experience">
+        <h2 class="section-title">📂 Experiencia</h2>
+        <p class="section-sub">Proyectos reales, investigación y trabajo técnico</p>
+
+        <ul class="clean-list">
+          <li>
+            <strong>Asistente de Investigación – Laboratorio de IA (UTEC):</strong>
+            Modelos de machine learning y visión computacional con TensorFlow y Keras
+            para automatización técnica. (2024 – Actualidad)
+          </li>
+
+          <li>
+            <strong>Desarrollador Full Stack – EduLink Startup:</strong>
+            Desarrollo de APIs REST con Node.js,
+            paneles dinámicos React y despliegues con Docker y GitHub Actions. (2024)
+          </li>
+
+          <li>
+            <strong>Ingeniero de Software – VisionAI Research:</strong>
+            IA para control de calidad industrial.
+            Inferencia en Raspberry Pi y procesamiento de datos con Python/PyTorch. (2024)
+          </li>
+
+          <li>
+            <strong>Líder Técnico – Warmi Go (JA Perú):</strong>
+            Arquitectura backend, base de datos y prototipo funcional.
+            Proyecto ganador nacional con enfoque social. (2023)
+          </li>
+
+          <li>
+            <strong>Desarrollador IoT – Mecatrack:</strong>
+            App móvil en Kotlin conectada vía Bluetooth con módulo Arduino,
+            enfocada en mantenimiento predictivo vehicular. (2024 – Actualidad)
+          </li>
+
+          <li>
+            <strong>Dev Freelance:</strong>
+            Sitios y sistemas personalizados para clientes (landing pages, paneles internos,
+            formularios conectados a backend). Uso de React, Tailwind, Laravel. (2023 – Actualidad)
+          </li>
+        </ul>
+      </section>
+
+    </section>
+
+    <!-- RIGHT COLUMN -->
+    <aside class="right-col">
+
+      <!-- HABILIDADES -->
+      <section class="card" id="skills">
+        <h2 class="section-title">🧠 Habilidades Técnicas</h2>
+        <p class="section-sub">Stack principal</p>
+
+        <ul class="skills-list">
+          <li>
+            <strong>Lenguajes:</strong>
+            Python, Kotlin, Java, JavaScript, TypeScript, C++, C#, PHP, Go, SQL
+          </li>
+          <li>
+            <strong>Backend / APIs / IA:</strong>
+            Node.js, Flask, FastAPI, Laravel, TensorFlow, OpenCV, Pandas, NumPy
+          </li>
+          <li>
+            <strong>Frontend / Mobile:</strong>
+            React, TailwindCSS, Jetpack Compose, Android Studio, Figma (UI/UX)
+          </li>
+          <li>
+            <strong>Infraestructura / DevOps:</strong>
+            Docker, Linux, Git/GitHub, CI/CD, Virtualización (Windows Server / Ubuntu Server)
+          </li>
+          <li>
+            <strong>Cloud & Data:</strong>
+            AWS, GCP, Firebase, PostgreSQL, MongoDB, MySQL
+          </li>
+          <li>
+            <strong>Idiomas:</strong>
+            Inglés Intermedio (B2), Alemán Intermedio (B1)
+          </li>
+        </ul>
+      </section>
+
+      <!-- EDUCACIÓN -->
+      <section class="card" id="education">
+        <h2 class="section-title">🎓 Educación</h2>
+        <p class="section-sub">Formación académica y certificaciones</p>
+
+        <ul class="edu-list">
+          <li>
+            <strong>UTEC – Ingeniería de Sistemas</strong><br/>
+            Décimo ciclo | 2023 – Actualidad | Lima, Perú<br/>
+            Enfoque en desarrollo de software, IA aplicada y automatización.
+          </li>
+
+          <li>
+            <strong>Certificación Profesional Full Stack Developer – IBM SkillsBuild</strong><br/>
+            2024<br/>
+            Desarrollo web full stack, APIs, despliegue en nube y bases de datos.
+          </li>
+
+          <li>
+            <strong>Google Professional Certificate – IT Automation with Python</strong><br/>
+            2024<br/>
+            Automatización de tareas, scripting y administración de sistemas con Python.
+          </li>
+
+          <li>
+            <strong>Virtualización con Windows Server y Ubuntu Server</strong><br/>
+            2024<br/>
+            Configuración de máquinas virtuales, redes internas y servicios en entorno híbrido.
+          </li>
+
+          <li>
+            <strong>Machine Learning y Redes Neuronales – DeepLearning.AI</strong><br/>
+            2024<br/>
+            Modelos supervisados, visión computacional y despliegue de inferencia.
+          </li>
+
+          <li>
+            <strong>Desarrollo Android con Jetpack Compose – Google Developers</strong><br/>
+            2024
+          </li>
+
+          <li>
+            <strong>Desarrollo Web (HTML, CSS, JavaScript, React) – Coursera</strong><br/>
+            2024
+          </li>
+
+          <li>
+            <strong>Administración de Servidores Linux y Redes – Cisco Networking Academy</strong><br/>
+            2024
+          </li>
+        </ul>
+      </section>
+
+      <!-- CONTACTO -->
+      <section class="card" id="contact">
+        <h2 class="section-title">📨 Contacto</h2>
+        <p class="section-sub">Hablemos</p>
+
+        <p class="text-body"><span class="small-label">Email:</span><br/>
+          <a style="color:var(--accent);text-decoration:none;" href="mailto:alexanderalcocer21092728@gmail.com">
+            alexanderalcocer21092728@gmail.com
+          </a>
+        </p>
+
+        <p class="text-body"><span class="small-label">LinkedIn:</span><br/>
+          <a style="color:var(--accent);text-decoration:none;" href="https://www.linkedin.com/in/alexander-sebastian-alcocer-flores-0aa703390/" target="_blank" rel="noopener noreferrer">
+            linkedin.com/in/alexander-sebastian-alcocer-flores-0aa703390
+          </a>
+        </p>
+
+        <p class="text-body"><span class="small-label">GitHub:</span><br/>
+          <a style="color:var(--accent);text-decoration:none;" href="https://github.com/Alex2r3" target="_blank" rel="noopener noreferrer">
+            github.com/Alex2r3
+          </a>
+        </p>
+
+        <p class="available-pill">Disponible para prácticas / proyectos freelance</p>
+      </section>
+    </aside>
+  </main>
+
+  <footer>
+    © 2025 Alexander Sebastian Alcocer Flores · Lima, Perú
+  </footer>
+</body>
+</html>
